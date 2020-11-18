@@ -103,7 +103,7 @@ def starfall(canvas):
 
 
 if __name__ == '__main__':
-    subprocess.call(['/usr/bin/resize', '-s', '35', '85'])
+    subprocess.call(['/usr/bin/resize', '-s', '20', '85'])
     curses.update_lines_cols()
     curses.wrapper(draw)
 
