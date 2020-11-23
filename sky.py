@@ -72,11 +72,12 @@ async def morning_star(canvas, start_row=0, start_column=40, rows_speed=5, colum
 
     canvas.addstr(round(row - 3), round(column + 3), '*')
     canvas.refresh()   
-    await Sleep(0.1) 
+    time.sleep(0.1) 
     curses.beep()  
     canvas.addstr(round(row - 3), round(column + 3), '*', curses.A_BOLD)
     canvas.refresh()
     starfall(canvas)
+    await asyncio.sleep(0)
 
 async def light_up(canvas, row, column, symbol):
     """Lights the stars"""
