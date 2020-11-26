@@ -25,10 +25,8 @@ def draw(canvas):
 
     h, w = canvas.getmaxyx()
     curses.curs_set(False)
-    canvas.border()
     COROUTINES.append(morning_star(canvas))
     client = Client("127.0.0.1", 8888, timeout=15)
-    #borders = client.put(h, w)
     stars = client.data
 
     for _ in range(stars):
@@ -96,11 +94,15 @@ async def blink(canvas, row, column):
     while True:
         canvas.addstr(row, column, ' ')
         canvas.refresh()
-        await Sleep(200)
-        
+        await Sleep(2000)
+             
 def starfall(canvas):
     """Launch starfall"""
-    print(f"Hello, space!")
+    #canvas.refresh() 
+    text = "Hello, space!"
+    y, x = canvas.getyx()
+    canvas.addstr(y, x, text)
+    canvas.refresh() 
 
 
 if __name__ == '__main__':
